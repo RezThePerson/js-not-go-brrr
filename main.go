@@ -26,8 +26,11 @@ func Serve() error {
 	// r.HandleFunc("/game-stream", handlers.GameStreamHandler)
 	// r.HandleFunc("/players-stream", handlers.PlayersStreamHandler)
 
-	slog.Info("listening on :8080")
-	return http.ListenAndServe(":8080", r)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	return http.ListenAndServe(":"+port, r)
 }
 
 func main() {
