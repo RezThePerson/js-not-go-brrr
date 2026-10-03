@@ -23,13 +23,14 @@ func Serve() error {
 	r.PathPrefix("/static/").Handler(http.FileServer(http.FS(webFS)))
 	r.HandleFunc("/", handlers.HomeHandler)
 	// r.HandleFunc("/jump", handlers.JumpHandler)
-	// r.HandleFunc("/game-stream", handlers.GameStreamHandler)
-	// r.HandleFunc("/players-stream", handlers.PlayersStreamHandler)
+	// r.HandleFunc("/stream", handlers.StreamHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
+
+	slog.Info("starting server", "port", port)
 	return http.ListenAndServe(":"+port, r)
 }
 

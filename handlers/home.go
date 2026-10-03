@@ -11,7 +11,11 @@ var tmpl *template.Template
 
 func InitTemplates(webFS embed.FS) (err error) {
 	tmpl, err = template.ParseFS(webFS, "web/templates/*.html")
-	return err
+	if err != nil {
+		return err
+	}
+	slog.Info("templates loaded")
+	return nil
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
