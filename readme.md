@@ -1,4 +1,5 @@
-# js not go brrr
+# JS not go brrr
 
-js is everywhere, js is evil, js goes brrr. escape it in a chrome dino implementation with 0 js (pain html and css frontend, + go server)
+JS is everywhere, JS is evil, JS goes brrr. Escape it in a multiplayer chrome dino implementation with 0 JS (pain html and css frontend, + go server)!
 
+try now at: 
