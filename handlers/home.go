@@ -5,9 +5,14 @@ import (
 	"html/template"
 	"log/slog"
 	"net/http"
+
+	"github.com/RezThePerson/js-not-go-brrr/game"
 )
 
-var tmpl *template.Template
+var (
+	tmpl *template.Template
+	gs   = game.New() // single shared game instance
+)
 
 func InitTemplates(webFS embed.FS) (err error) {
 	tmpl, err = template.ParseFS(webFS, "web/templates/*.html")

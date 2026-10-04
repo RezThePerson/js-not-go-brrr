@@ -1,0 +1,50 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Lexend&display=swap');
+
+body {
+	font-family: "Lexend", sans-serif;
+	color: #e5e7eb;
+	background: #2c2c2c;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+p,
+h1 {
+	text-align: center;
+
+	max-width: 800px;
+}
+
+a {
+	color: #e5e7eb;
+}
+
+.jump-form {
+	width: 100%;
+}
+
+.jump-btn {
+	font-family: 'Lexend', sans-serif;
+	width: 100%;
+
+	color: #e5e7eb;
+	background: #4c4c4c;
+	border: 1px solid #ffffff;
+	border-radius: 8px;
+
+	cursor: pointer;
+}
+
+.jump-form:focus-within~.jump-warning {
+	display: none;
+}
+
+.game {
+	width: 800px;
+	height: 300px;
+	border: 1px solid #ffffff;
+	border-radius: 8px;
+	overflow: hidden;
+}

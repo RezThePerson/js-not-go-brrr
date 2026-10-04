@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"io/fs"
 	"log/slog"
 	"net/http"
 	"os"
@@ -18,12 +19,18 @@ func Serve() error {
 		return err
 	}
 
+	// Strip the "web/" prefix so /static/style.css maps to web/static/style.css.
+	staticFS, err := fs.Sub(webFS, "web")
+	if err != nil {
+		return err
+	}
+
 	r := mux.NewRouter()
 
-	r.PathPrefix("/static/").Handler(http.FileServer(http.FS(webFS)))
+	r.PathPrefix("/static/").Handler(http.FileServer(http.FS(staticFS)))
 	r.HandleFunc("/", handlers.HomeHandler)
-	// r.HandleFunc("/jump", handlers.JumpHandler)
-	// r.HandleFunc("/stream", handlers.StreamHandler)
+	r.HandleFunc("/jump", handlers.JumpHandler).Methods(http.MethodPost)
+	r.HandleFunc("/stream", handlers.StreamHandler).Methods(http.MethodGet)
 
 	port := os.Getenv("PORT")
 	if port == "" {

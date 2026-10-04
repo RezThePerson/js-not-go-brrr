@@ -1,5 +1,13 @@
 {{ define "app" }}
+<iframe src="/stream" class="game"></iframe>
 
-insert app here
+<iframe name="jump-target" style="display:none"></iframe>
+<form method="POST" action="/jump" target="jump-target" class="jump-form">
+	<button type="submit" class="jump-btn">jump</button>
+</form>
 
+<p class="jump-warning">
+	please click the above ^^ button so that you can press space and jump :)
+	this message will auto hide once you focus on it.
+</p>
 {{ end }}
