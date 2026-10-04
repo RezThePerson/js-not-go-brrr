@@ -2,8 +2,10 @@
 
 body {
 	font-family: "Lexend", sans-serif;
+
 	color: #e5e7eb;
 	background: #2c2c2c;
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,7 +15,6 @@ p,
 h1 {
 	text-align: center;
 	max-width: 800px;
-	margin: 0;
 }
 
 a {
@@ -26,12 +27,14 @@ a {
 
 .jump-btn {
 	font-family: 'Lexend', sans-serif;
-	width: 100%;
-	padding: .5rem;
 	color: #e5e7eb;
 	background: #4c4c4c;
+
+	width: 100%;
+
 	border: 1px solid #ffffff;
 	border-radius: 8px;
+
 	cursor: pointer;
 }
 
